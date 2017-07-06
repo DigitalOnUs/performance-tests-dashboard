@@ -2,9 +2,6 @@ FROM influxdb:1.2
 
 MAINTAINER ruslan.ledesma@digitalonus.com
 
-RUN apt-get update
-RUN apt-get -y install emacs net-tools
-
 # Add Omar's configuration
 RUN mkdir -p /workspace
 COPY additional.conf /workspace
