@@ -1,13 +1,16 @@
 SHELL=/bin/bash
 
 all:
-	@for f in $$(ls *.sh); do \
+	@ec=0; \
+	for f in $$(ls *.sh); do \
 	  echo -n "$${f%.sh} ... "; \
 	  if ./$$f &>/dev/null; then \
 	    echo PASS; \
 	  else \
+	    ec=$$?; \
 	    echo FAIL; \
 	  fi; \
-	done
+	done; \
+	exit $$ec
 
 .PHONY: all
