@@ -20,6 +20,3 @@ printf "Memory\tCPU\tDISKREAD\tDISKWRITE\n"
 echo "$MEMORY	$CPU	$DISKREADSEC	$DISKWRITESEC"
 exit
 set e+
-
-
-
