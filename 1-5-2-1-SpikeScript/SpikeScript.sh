@@ -6,7 +6,7 @@ end=$((SECONDS+2400000))
 #need to add check if sysstat is installed.
 #
 
-source ServerMetrics.conf
+source SpikeScript.conf
 echo $USERNAME
 echo $PASSWORD
 echo $IPADDRESS
