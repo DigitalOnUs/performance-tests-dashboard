@@ -9,6 +9,7 @@ end=$((SECONDS+2400000))
 source ServerMetrics.conf
 echo $USERNAME
 echo $PASSWORD
+echo $IPADDRESS
 while [ $SECONDS -lt $end ]; do
 
 ##################
