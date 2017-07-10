@@ -9,7 +9,7 @@ all:
 	  else \
 	    ec=$$?; \
 	    echo FAIL; \
-	 fi; \
+	  fi; \
 	done; \
 	exit $$ec
 
