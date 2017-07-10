@@ -18,3 +18,6 @@ You can start performance-tests-dashboard in regular or detached mode.
 
 Run `make`.
 
+# Defaults
+
+The default username and password of Grafana is `admin`.
