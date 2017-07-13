@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
-string='influxcopy'
-if [[ $string == *"influxcopy2"* ]]; then
+ 
+string=$(mongo influxcopy --eval "db.getName()" --quiet)
+if [[ $string == *"influxcopy"* ]]; then
   echo "It's there!"
+else  exit 
 fi
 set e+
