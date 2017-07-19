@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-source SpikeScript.conf
+source spikescript.conf
 echo $USERNAME
 echo $PASSWORD
 echo $IPADDRESS
