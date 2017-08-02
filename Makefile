@@ -1,11 +1,15 @@
-all: test
+all: test 
 
 test:
 	@for d in ./test/*; do \
 	  echo TEST $$d; \
-	  cd $$d; \
-	  $(MAKE); \
-	  cd -; \
+	  $(MAKE) -C $$d; \
 	done
+
+clean:
+	@for d in ./test/*; do \
+	  echo CLEAN $$d;\
+      $(MAKE clean) -C $$d; \
+	done	
 
 .PHONY: all test
