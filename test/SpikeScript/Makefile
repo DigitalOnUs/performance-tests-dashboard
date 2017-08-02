@@ -13,4 +13,8 @@ all:
 	done; \
 	exit $$ec
 
+clean:
+	rm -f vars
+
 .PHONY: all
+

@@ -6,6 +6,10 @@ services:
 before_install:
   - sudo apt-get update
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - sudo useradd -s /bin/bash -p $(echo ssh_pass | openssl passwd -1 -stdin) ssh_user
 
 script:
   - make
+  - make clean
+
+

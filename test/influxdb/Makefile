@@ -13,4 +13,6 @@ all:
 	done; \
 	exit $$ec
 
+clean:
+
 .PHONY: all
