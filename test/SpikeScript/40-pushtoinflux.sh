@@ -8,7 +8,6 @@ echo $IPADDRESS
 
 check_response()
 {
-	#check 2.. (always followed by 2-numerals only)
 	if ! (echo "$response" | grep '2[0-9][0-9]')
 	then
 		exit 1

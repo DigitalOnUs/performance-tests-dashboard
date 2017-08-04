@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TIMEOUT=10
+TIMEOUT=100
 (( STEPS = $TIMEOUT * 8 ))
 
 function grafana_is_up {
