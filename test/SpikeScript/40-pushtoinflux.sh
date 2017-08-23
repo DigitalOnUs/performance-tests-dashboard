@@ -16,8 +16,8 @@ check_response()
 
 NOW=$(date +"%s")
 
-#create spike_test database 
-response=$(curl -i --write-out %{http_code} --silent --output /dev/null -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE spike_test")
+#create test database 
+response=$(curl -i --write-out %{http_code} --silent --output /dev/null -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE test")
 check_response
 
 ##################
@@ -39,19 +39,19 @@ echo -e "MEMORY=$MEMORY \nCPU=$CPU \nDISKREADSEC=$DISKREADSEC \nDISKWRITESEC=$DI
 ##################
 
 #POST CPU utilization to Influxdb 
-response=$(curl -i  --write-out %{http_code} --silent --output /dev/null -XPOST 'http://localhost:8086/write?db=spike_test' --data-binary 'cpu_load_short,host=server01,region=us-west value='$CPU' '$NOW'')
+response=$(curl -i  --write-out %{http_code} --silent --output /dev/null -XPOST 'http://localhost:8086/write?db=test' --data-binary 'cpu_load_short,host=server01,region=us-west value='$CPU' '$NOW'')
 check_response
 
 #POST Memory utilization to Influxdb 
-response=$(curl -i  --write-out %{http_code} --silent --output /dev/null -XPOST 'http://localhost:8086/write?db=spike_test' --data-binary 'mem_load_short,host=server01,region=us-west value='$MEMORY' '$NOW'')
+response=$(curl -i  --write-out %{http_code} --silent --output /dev/null -XPOST 'http://localhost:8086/write?db=test' --data-binary 'mem_load_short,host=server01,region=us-west value='$MEMORY' '$NOW'')
 check_response
 
 #POST Disk read to Influxdb
-response=$(curl -i  --write-out %{http_code} --silent --output /dev/null -XPOST 'http://localhost:8086/write?db=spike_test' --data-binary 'disk_read_short,host=server01,region=us-west value='$DISKREADSEC' '$NOW'')
+response=$(curl -i  --write-out %{http_code} --silent --output /dev/null -XPOST 'http://localhost:8086/write?db=test' --data-binary 'disk_read_short,host=server01,region=us-west value='$DISKREADSEC' '$NOW'')
 check_response
 
 #POST Disk write to Influxdb
-response=$(curl -i  --write-out %{http_code} --silent --output /dev/null -XPOST 'http://localhost:8086/write?db=spike_test' --data-binary 'disk_write_short,host=server01,region=us-west value='$DISKWRITESEC' '$NOW'')
+response=$(curl -i  --write-out %{http_code} --silent --output /dev/null -XPOST 'http://localhost:8086/write?db=test' --data-binary 'disk_write_short,host=server01,region=us-west value='$DISKWRITESEC' '$NOW'')
 check_response
 
 #printf "Memory\t\tDisk\t\tCPU\n"

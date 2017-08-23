@@ -17,4 +17,3 @@ clean:
 	rm -f vars
 
 .PHONY: all
-
