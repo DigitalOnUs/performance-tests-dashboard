@@ -1,7 +1,0 @@
-USERNAME="ssh_user"
-PASSWORD="ssh_pass"
-<<<<<<< HEAD
-IPADDRESS="localhost"
-=======
-IPADDRESS="localhost"
->>>>>>> Demo
