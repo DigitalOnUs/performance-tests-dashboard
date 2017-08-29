@@ -1,14 +1,33 @@
 version: '3'
 
+#do not change container names
+
 services:
   influxdb:
     build: influxdb
+    container_name: influx_system
     ports:
       - 8086:8086
       - 2003:2003
   grafana:
     build: grafana
+    container_name: grafana_system
     ports:
       - 3000:3000
     depends_on:
       - influxdb
+
+  monitor:
+    build: monitor
+    container_name: monitor_system
+
+  spike:
+    build: 1-5-2-1-SpikeScript
+    container_name: spike_system
+    depends_on: 
+      - monitor
+
+  jmeter:
+    build: jmeter
+    container_name: jmeter_system
+
